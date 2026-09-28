@@ -1,0 +1,9 @@
+node_modules/
+lab_system.db
+*.db
+.env
+.env.*
+!.env.example
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
