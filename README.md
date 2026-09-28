@@ -32,11 +32,13 @@ The server uses port `3000` by default. Set the `PORT` environment variable to u
 | Doctor | `doctor@lab.com` | `doc123` |
 | Patient | `patient@lab.com` | `pat123` |
 
-These seeded accounts and the default session secret are for local development only. Change them and configure a strong session secret before deploying or using real patient data.
+These seeded accounts and the default session secret are for local development only. Change them and set a strong `SESSION_SECRET` environment variable before deploying or using real patient data.
 
 ## Data Storage
 
-The application creates and updates `lab_system.db` in the project directory. This local database is intentionally excluded from Git. Back it up securely if you need to preserve application data; do not commit patient or other sensitive records.
+The application creates and updates `lab_system.db` in the project directory. Set `DATABASE_PATH` to store it elsewhere. This local database is intentionally excluded from Git. Back it up securely if you need to preserve application data; do not commit patient or other sensitive records.
+
+On Vercel, the database is placed in `/tmp` so the function can write to it. Vercel function storage is temporary and isolated between instances, so it is suitable only for a demo. Use a persistent hosted database before relying on the application for real records.
 
 ## Main Technologies
 

@@ -3,7 +3,7 @@ const bcrypt = require('bcryptjs');
 const path = require('path');
 const fs = require('fs');
 
-const DB_PATH = path.join(__dirname, 'lab_system.db');
+const DB_PATH = process.env.DATABASE_PATH || path.join(process.env.VERCEL ? '/tmp' : __dirname, 'lab_system.db');
 let db = null;
 
 function saveDB() {
